@@ -14,7 +14,7 @@ BlockTrackUtils is a tool designed to help you track player bans and view their 
 2. **Decompile**: Decompile or extract the source files of BlockTrackUtils.
 3. **Install Dependencies**: Open your terminal or command prompt, navigate to the project folder, and run `npm install` to install the required dependencies.
 4. **Start the Server**: Run `node server.js` to start the server.
-5. **Access the Tool**: Open a web browser and go to `localhost:3000`. You can modify the port if you prefer a different one.
+5. **Access the Tool**: Then open a minecraft client supported in 1.8.9 and join on `localhost:3000`. You can modify the port if you prefer a different one.
 
 ## Commands
 
