@@ -1,0 +1,19 @@
+{
+  "name": "blockstracker-server",
+  "version": "1.0.0",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "basic-minecraft-proxy": "^2.0.2",
+    "minecraft-protocol": "^1.54.0",
+    "mineflayer": "^4.26.0",
+    "prismarine-chunk": "^1.38.1"
+  }
+}
