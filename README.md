@@ -23,4 +23,4 @@ BlockTrackUtils is a tool designed to help you track player bans and view their 
 - **/eraseusernames**: Cleans up the list of old usernames to free up storage space.
 
 Enjoy using BlockTrackUtils!
-```
+
