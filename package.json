@@ -1,7 +1,7 @@
 {
   "name": "blockstracker-server",
   "version": "1.0.0",
-  "main": "bot.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
@@ -12,8 +12,11 @@
   "description": "",
   "dependencies": {
     "basic-minecraft-proxy": "^2.0.2",
+    "minecraft-data": "^3.84.1",
     "minecraft-protocol": "^1.54.0",
     "mineflayer": "^4.26.0",
-    "prismarine-chunk": "^1.38.1"
+    "pkg": "^5.8.1",
+    "prismarine-chunk": "^1.38.1",
+    "vec3": "^0.1.10"
   }
 }
