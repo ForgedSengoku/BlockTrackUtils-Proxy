@@ -1,5 +1,5 @@
 
-# BlockTrackUtils
+# BlockTrackUtils 2
 
 BlockTrackUtils is a tool designed to help you track player bans and view their previous usernames.
 
