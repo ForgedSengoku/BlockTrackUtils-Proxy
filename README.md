@@ -55,7 +55,7 @@ You can change the port in the configuration if needed.
 | Command | Description |
 |---------|-------------|
 | **/prv** | Displays the list of previously checked usernames. |
-| **/check <PlayerUsername>** | Checks the ban status of a player. |
+| **/check UserNamePlayerToCheck** | Checks the ban status of a player. |
 | **/eraseusernames** | Clears the stored usernames to free up space. |
 | **/faq** | Explains why some accounts cannot be checked. |
 | **/help** | Displays a list of available commands. |
