@@ -3,6 +3,32 @@
 
 BlockTrackUtils is a tool designed to help you track player bans and view their previous usernames.
 
+Below is an example of a warning message with a "cool text" style using ASCII art and markdown formatting. You can include this text in your project's documentation or README file:
+
+
+  ███████╗██╗    ██╗██████╗ ██╗     ██╗     ██╗   ██╗████████╗
+  ██╔════╝██║    ██║██╔══██╗██║     ██║     ██║   ██║╚══██╔══╝
+  ███████╗██║ █╗ ██║██████╔╝██║     ██║     ██║   ██║   ██║   
+  ╚════██║██║███╗██║██╔══██╗██║     ██║     ██║   ██║   ██║   
+  ███████║╚███╔███╔╝██████╔╝███████╗███████╗╚██████╔╝   ██║   
+  ╚══════╝ ╚══╝╚══╝ ╚═════╝ ╚══════╝╚══════╝ ╚═════╝    ╚═╝   
+  
+  WARNING:
+  
+  This tool might not be as stable as the Electron app version.
+  BlockTrackUtils uses basic-minecraft-proxy, and as a result, there
+  are some known issues:
+  
+    • Occasionally, when connecting to the server, a player might get
+      kicked (e.g., "Invalid") without the kick message being properly
+      displayed.
+      
+    • Premium account support is currently missing (though we can
+      implement it easily – that's not the core issue).
+  
+  Please be aware of these limitations while using BlockTrackUtils.
+
+This ASCII art and formatted text can be copied directly into your project's documentation. Adjust or refine the text as needed to suit your tone and style.
 ## Why second?
 We done electron app but we moved from inside of Minecraft to join BlocksMC and be able to check bans the electron app is not discontinued and will get updates still due to its design and easy management 
 ## Features
