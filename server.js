@@ -191,7 +191,7 @@ const proxy = McProxy.createProxy(localServerOptions, serverList, proxyOptions);
 proxy.on('error', console.error);
 
 proxy.on('listening', () => {
-  console.info('§cProxy §4BlocksMCTrackUtils §4made by §4§lForgedSengoku §r' + localServerOptions.port);
+  console.info('\x1b[31mProxy \x1b[38;5;124mBlocksMCTrackUtils \x1b[38;5;88mmade by ForgedSengoku \x1b[0m' + localServerOptions.port);
 });
 
 function handleInternalCommand(player, packet) {
