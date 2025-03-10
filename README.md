@@ -1,8 +1,10 @@
 
-# BlockTrackUtils
+# BlockTrackUtils 
 
 BlockTrackUtils is a tool designed to help you track player bans and view their previous usernames.
 
+## Why second?
+We done electron app but we moved from inside of Minecraft to join BlocksMC and be able to check bans the electron app is not discontinued and will get updates still due to its design and easy management 
 ## Features
 
 - **Track Bans**: Check the reason why a player was banned.
