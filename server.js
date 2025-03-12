@@ -12,9 +12,9 @@ if (!fs.existsSync(DATA_FOLDER)) {
 
 // Mapping for status codes to human-readable messages with color codes
 const statusMapping = {
-  ipban: { text: "Failed to check because of IP banned", color: "§5" },
+  ipban: { text: "You are IP banned, cannot check why?", color: "§4" },
   slowdown: { text: "Rate limit failed check", color: "§3" },
-  premium: { text: "This player is a premium account and cannot be checked. Type /faq to find out why.", color: "§d" },
+  premium: { text: " is Premium Account uncheckable. Type /faq to know", color: "§6" },
   unbp: { text: "is currently not banned and playing now", color: "§e" },
   not: { text: "is currently not banned!", color: "§a" }
 };
@@ -73,7 +73,8 @@ function formatStatusEntry(entry) {
     const username = match[1];
     const status = match[2];
     if (statusMapping[status]) {
-      return username + ": " + statusMapping[status].color + statusMapping[status].text;
+      // Always reset after the message to prevent stray white text.
+      return username + ": " + statusMapping[status].color + statusMapping[status].text + "§r";
     } else {
       return username + ": " + status;
     }
@@ -115,7 +116,8 @@ function createBotInstance(username, callback) {
   function sendResult(message) {
     if (!finished) {
       finished = true;
-      callback(message);
+      // Append reset code to prevent stray white text.
+      callback(message + "§r");
       if (bot && typeof bot.quit === 'function') {
         bot.quit("Disconnecting after final result");
       }
@@ -138,13 +140,14 @@ function createBotInstance(username, callback) {
 
     if (reasonText.includes("Premium ON") && reasonText.includes("PREMIUM.BLOCKSMC.COM")) {
       updatePlayerStatus(username, 'premium');
-      sendResult("§dThis player is a premium account and cannot be checked. Type /faq to find out why.");
+      // Updated premium message with orange text and a short message.
+      sendResult("§6That player " + username + " is a premium account and cannot be checked. Type /faq to know.");
     } else if (reasonText.includes("already logged on")) {
       updatePlayerStatus(username, 'unbp');
       sendResult("§eThe player " + username + " is currently not banned and playing now.");
     } else if (reasonText.includes("banned from the server")) {
       updatePlayerStatus(username, 'ipban');
-      sendResult("§cFailed to check " + username + ": You are IP banned from BlocksMC. Use a proxy to get it unbanned and be able to check.");
+      sendResult("§4You are IP banned, cannot check why?");
     } else if (reasonText.includes("Please slow down")) {
       updatePlayerStatus(username, 'slowdown');
       sendResult("§cPlease slow down. BlocksMC might rate limit due to advanced DDoS attacks. Please type again /check " + username);
@@ -168,7 +171,7 @@ const localServerOptions = {
   port: '25565',
   version: '1.8.9',
   'online-mode': false,
-  motd: '§eBlocksMC Proxy - TrackUtils'
+  motd: '§b✦ §7BlocksTrackUtils §b✦ §7Local Proxy Server',
 };
 
 const serverList = {
@@ -191,7 +194,9 @@ const proxy = McProxy.createProxy(localServerOptions, serverList, proxyOptions);
 proxy.on('error', console.error);
 
 proxy.on('listening', () => {
-  console.info('\x1b[31mProxy \x1b[38;5;124mBlocksMCTrackUtils \x1b[38;5;88mmade by ForgedSengoku \x1b[0m' + localServerOptions.port);
+  // Updated console output with custom ANSI escape codes:
+  // "Blocks" in blue, "MC" in cyan, and "made by ForgedSengoku" in bold magenta.
+  console.info('\x1b[34mBlocks\x1b[36mMC \x1b[1;35mmade by ForgedSengoku\x1b[0m Proxy listening on port ' + localServerOptions.port);
 });
 
 function handleInternalCommand(player, packet) {
@@ -226,8 +231,9 @@ function handleInternalCommand(player, packet) {
       sender: 'Server'
     });
   } else if (message.trim() === '/faq') {
+    // Updated FAQ text with three bullet points.
     player.write('chat', {
-      message: JSON.stringify({ text: "Why is a Premium account uncheckable? Because of BlocksMC restrictions, you need a premium account to authenticate. Your cracked account can't check it." }),
+      message: JSON.stringify({ text: "FAQ:\n• Premium account: Premium accounts cannot be checked.\n• IP banned: If you're IP banned, use a proxy.\n• Why Minecraft? We ported our Electron app to Minecraft because it's funnier, no need to tab out, and easier to manage!" }),
       position: 1,
       sender: 'Server'
     });
@@ -287,5 +293,4 @@ proxy.on('login', (player) => {
     }
   };
   overrideLocalWrite();
-  });
-  
+});
